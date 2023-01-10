@@ -1,4 +1,6 @@
-const { defineConfig } = require("cypress");
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
+const { defineConfig } = require('cypress')
 
 module.exports = defineConfig({
   e2e: {
