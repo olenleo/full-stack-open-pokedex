@@ -20,3 +20,9 @@ jobs:
       - name: Todays date is
         run: |
           date
+  filesystem_job:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Filesystem contents
+        run: |
+          ls -l
