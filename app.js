@@ -12,11 +12,11 @@ app.listen(PORT, () => {
 })
 
 app.get('/health', (req, res) => {
-  console.log(req)
-  console.log('BOOM')
+  throw 'error...'
+  // eslint-disable-next-line no-unreachable
   res.send('ok')
 })
 
 app.get('/version', (req, res) => {
-  res.send('1') // change this string to ensure a new version deployed
+  res.send('2') // change this string to ensure a new version deployed
 })
