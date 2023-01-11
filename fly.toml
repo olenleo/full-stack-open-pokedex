@@ -46,8 +46,16 @@ processes = []
     interval = "15s"
     restart_limit = 0
     timeout = "2s"
-[deploy]
-  release_command = "npm run build"
 
-[processes]
-  app = "node app.js"
+  [[services.script_checks]]
+	command       = "/health_check.sh"
+	grace_period  = "1s"
+	interval      = "5s"
+	restart_limit = 0
+	timeout       = "1s"
+
+  [deploy]
+    release_command = "npm run build"
+
+  [processes]
+    app = "node app.js"
