@@ -1,8 +1,10 @@
 name: Fly Deploy
 on:
-  push:
+  pull_request:
+    types:
+      - closed
     branches:
-      - master
+      - "main"
 env:
   FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
 jobs:
@@ -12,5 +14,5 @@ jobs:
       steps:
         - uses: actions/checkout@v3
         - uses: superfly/flyctl-actions/setup-flyctl@master
-        if: ${{ github.event_name == 'push' }}
+        if: github.event_name == 'push'
           - run: flyctl deploy --remote-only
